@@ -1,0 +1,17 @@
+namespace src.main.java.rock;
+
+union ContextualMessage {PlainText, TaskCancellation}
+
+table PushMessage {
+    msg:ContextualMessage;
+}
+
+table PlainText {
+    content:string;
+}
+
+table TaskCancellation {
+    task_id:string;
+}
+
+root_type PushMessage;

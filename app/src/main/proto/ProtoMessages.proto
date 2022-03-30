@@ -1,0 +1,18 @@
+syntax = "proto3";
+package ru.stackit.mek.atm.infrastructure.messaging;
+
+message PlainTextMessage {
+  string content = 1;
+}
+
+message TaskCancellationMessage {
+  string taskUuidString = 1;
+}
+
+message PushMessage {
+  oneof message {
+    PlainTextMessage plain_text_message = 1;
+    TaskCancellationMessage task_cancellation_message = 2;
+  }
+  string timestamp = 3;
+}
